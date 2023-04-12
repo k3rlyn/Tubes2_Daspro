@@ -6,6 +6,7 @@ def isi_arr(file):
     while(huruf):
         arr += huruf
         huruf = f.read(1)
+    f.close()
     return arr
 
 #fungsi ini bisa dipakai buat mengetahui berapa jumlah barsi dari isi file .csv
@@ -24,6 +25,7 @@ def jmlh_baris(file):
             jmlh_tk += 1
         if huruf == "\n":
             jmlh_enter += 1
+    f.close()
     return jmlh_enter
 
 #Fungsi ini bisa dipakai buat split() secara manual, dalam kasus ini hanya berlaku untuk ;
