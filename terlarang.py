@@ -55,6 +55,14 @@ def split_manual(file):
 
 print(split_manual("user.csv"))
 
+#fungsi ini bisa dipakai untuk mengaplikasikan fungsi len 
+def length(x) :
+    length = 0
+    for i in range (x) :
+        length += 1
+    return length 
+
+
 #keunggulan fungsi ini bisa mengetahui ada berapa baris
 #tidak ada ;
 #tidaka 
