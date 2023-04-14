@@ -62,6 +62,22 @@ def length(x) :
         length += 1
     return length 
 
+#fungsi ini bisa dipakai untuk mengaplikasikan fungsi append 
+def add(x,y):
+    new_list = [0 for i in range(length(x)+1)]
+    for i in range(length(x)):
+        new_list[i] = x[i]
+    new_list[-1] = y
+    return new_list
+
+#karena tidak diperbolehkan menggunakan import.csv maka akan dibuat sebuah fungsi yang akan membaca file csv 
+def read_csv_file(filename, separator=','):
+    result_list = []
+    with open(filename, 'r') as file:
+        for line in file:
+            row = split_manual(line, separator)
+            result_list = add(result_list, row)
+    return result_list
 
 #keunggulan fungsi ini bisa mengetahui ada berapa baris
 #tidak ada ;
