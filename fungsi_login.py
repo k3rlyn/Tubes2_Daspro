@@ -1,4 +1,5 @@
 from terlarang import *
+import random
 
 def login():
     username = input("Username: ")
@@ -33,4 +34,14 @@ def logout(login_status) :
         print("Maaf anda belum login")
         return(login_status)
 
+#Fungsi Pengumpulan
+def kumpul():
+    def jin_pengumpul():
+        return random.randint(0,5)
+    
+    jumlah_batu = jin_pengumpul()
+    jumlah_pasir = jin_pengumpul()
+    jumlah_air = jin_pengumpul()
+
+    print("Jin menemukan", jumlah_pasir,"pasir,",jumlah_batu, "batu, dan",  jumlah_air,"air")
 
