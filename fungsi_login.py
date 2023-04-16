@@ -2,24 +2,35 @@ from terlarang import *
 
 def login():
     username = input("Username: ")
-    password = input("Passowrd: ")
+    password = input("Password: ")
     arr = split_manual("user.csv")
-    i = 0
-    cek = True
-    while cek == True:
-        if i > 0:
-            if username != arr[i][0]:
-                print("Username tidak terdaftar!")
-                cek = False
-            elif username == arr[i][0] and password != arr[i][1]:
-                print(arr[i][1])
+    login_status = False
+    username = ''
+    count = 0
+    for i in arr: #menggantikan fungsi len()
+        count += 1
+    for i in range(count):
+        if username == arr[i][0]:
+            if password == arr[i][1]:
+                print("Selamat datang,", arr[i][0])
+                login_status = True
+                username = arr[i][0]
+                return username, login_status #di setiap kondisi if harus ada return karena tidak diperbolehkan menggunakan "break"
+            else:
                 print("Password salah!")
-                cek = False
-            elif username == arr[i][0] and password == arr[i][1]:
-                print("Selamat datang,",arr[i][0])
-                cek = False
-        i += 1
+                return username, login_status
+    
+    print("Username tidak terdaftar!") #ketika pengecekan username di line 13 tidak terpenuhi maka akan keluar loop dan berarti name tidak terdaftar
+    return username, login_status
+        
 
-login()
+def logout(login_status) :
+    if login_status == True :
+        login_status = False 
+        print("Keluar dari akun")
+        return(login_status)
+    else : #blm login
+        print("Maaf anda belum login")
+        return(login_status)
 
 
